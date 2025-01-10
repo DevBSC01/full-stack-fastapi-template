@@ -4,6 +4,36 @@ import type { CancelablePromise } from "./core/CancelablePromise"
 import { OpenAPI } from "./core/OpenAPI"
 import { request as __request } from "./core/request"
 import type {
+  CertificatesReadCertificatesData,
+  CertificatesReadCertificatesResponse,
+  CertificatesCreateCertificateData,
+  CertificatesCreateCertificateResponse,
+  CertificatesReadCertificateData,
+  CertificatesReadCertificateResponse,
+  CertificatesUpdateCertificateData,
+  CertificatesUpdateCertificateResponse,
+  CertificatesDeleteCertificateData,
+  CertificatesDeleteCertificateResponse,
+  ContactsReadContactsData,
+  ContactsReadContactsResponse,
+  ContactsCreateContactData,
+  ContactsCreateContactResponse,
+  ContactsReadContactData,
+  ContactsReadContactResponse,
+  ContactsUpdateContactData,
+  ContactsUpdateContactResponse,
+  ContactsDeleteContactData,
+  ContactsDeleteContactResponse,
+  CvsReadCvsData,
+  CvsReadCvsResponse,
+  CvsCreateCvData,
+  CvsCreateCvResponse,
+  CvsReadCvData,
+  CvsReadCvResponse,
+  CvsUpdateCvData,
+  CvsUpdateCvResponse,
+  CvsDeleteCvData,
+  CvsDeleteCvResponse,
   ItemsReadItemsData,
   ItemsReadItemsResponse,
   ItemsCreateItemData,
@@ -14,6 +44,36 @@ import type {
   ItemsUpdateItemResponse,
   ItemsDeleteItemData,
   ItemsDeleteItemResponse,
+  JobsReadJobsData,
+  JobsReadJobsResponse,
+  JobsCreateJobData,
+  JobsCreateJobResponse,
+  JobsReadJobData,
+  JobsReadJobResponse,
+  JobsUpdateJobData,
+  JobsUpdateJobResponse,
+  JobsDeleteJobData,
+  JobsDeleteJobResponse,
+  KnowledgesReadKnowledgesData,
+  KnowledgesReadKnowledgesResponse,
+  KnowledgesCreateKnowledgeData,
+  KnowledgesCreateKnowledgeResponse,
+  KnowledgesReadKnowledgeData,
+  KnowledgesReadKnowledgeResponse,
+  KnowledgesUpdateKnowledgeData,
+  KnowledgesUpdateKnowledgeResponse,
+  KnowledgesDeleteKnowledgeData,
+  KnowledgesDeleteKnowledgeResponse,
+  LanguagesReadLanguagesData,
+  LanguagesReadLanguagesResponse,
+  LanguagesCreateLanguageData,
+  LanguagesCreateLanguageResponse,
+  LanguagesReadLanguageData,
+  LanguagesReadLanguageResponse,
+  LanguagesUpdateLanguageData,
+  LanguagesUpdateLanguageResponse,
+  LanguagesDeleteLanguageData,
+  LanguagesDeleteLanguageResponse,
   LoginLoginAccessTokenData,
   LoginLoginAccessTokenResponse,
   LoginTestTokenResponse,
@@ -23,6 +83,28 @@ import type {
   LoginResetPasswordResponse,
   LoginRecoverPasswordHtmlContentData,
   LoginRecoverPasswordHtmlContentResponse,
+  PrivateCreateUserData,
+  PrivateCreateUserResponse,
+  SchoolsReadSchoolsData,
+  SchoolsReadSchoolsResponse,
+  SchoolsCreateSchoolData,
+  SchoolsCreateSchoolResponse,
+  SchoolsReadSchoolData,
+  SchoolsReadSchoolResponse,
+  SchoolsUpdateSchoolData,
+  SchoolsUpdateSchoolResponse,
+  SchoolsDeleteSchoolData,
+  SchoolsDeleteSchoolResponse,
+  SkillsReadSkillsData,
+  SkillsReadSkillsResponse,
+  SkillsCreateSkillData,
+  SkillsCreateSkillResponse,
+  SkillsReadSkillData,
+  SkillsReadSkillResponse,
+  SkillsUpdateSkillData,
+  SkillsUpdateSkillResponse,
+  SkillsDeleteSkillData,
+  SkillsDeleteSkillResponse,
   UsersReadUsersData,
   UsersReadUsersResponse,
   UsersCreateUserData,
@@ -45,6 +127,369 @@ import type {
   UtilsTestEmailResponse,
   UtilsHealthCheckResponse,
 } from "./types.gen"
+
+export class CertificatesService {
+  /**
+   * Read Certificates
+   * Retrieve certificates.
+   * @param data The data for the request.
+   * @param data.skip
+   * @param data.limit
+   * @returns CertificatePublic Successful Response
+   * @throws ApiError
+   */
+  public static readCertificates(
+    data: CertificatesReadCertificatesData = {},
+  ): CancelablePromise<CertificatesReadCertificatesResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/v1/certificates/",
+      query: {
+        skip: data.skip,
+        limit: data.limit,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Create Certificate
+   * Create new certificate.
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns CertificatePublic Successful Response
+   * @throws ApiError
+   */
+  public static createCertificate(
+    data: CertificatesCreateCertificateData,
+  ): CancelablePromise<CertificatesCreateCertificateResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/v1/certificates/",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Read Certificate
+   * Get certificate by ID.
+   * @param data The data for the request.
+   * @param data.id
+   * @returns CertificatePublic Successful Response
+   * @throws ApiError
+   */
+  public static readCertificate(
+    data: CertificatesReadCertificateData,
+  ): CancelablePromise<CertificatesReadCertificateResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/v1/certificates/{id}",
+      path: {
+        id: data.id,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Update Certificate
+   * Update a certificate.
+   * @param data The data for the request.
+   * @param data.id
+   * @param data.requestBody
+   * @returns CertificatePublic Successful Response
+   * @throws ApiError
+   */
+  public static updateCertificate(
+    data: CertificatesUpdateCertificateData,
+  ): CancelablePromise<CertificatesUpdateCertificateResponse> {
+    return __request(OpenAPI, {
+      method: "PUT",
+      url: "/api/v1/certificates/{id}",
+      path: {
+        id: data.id,
+      },
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Delete Certificate
+   * Delete a certificate.
+   * @param data The data for the request.
+   * @param data.id
+   * @returns Message Successful Response
+   * @throws ApiError
+   */
+  public static deleteCertificate(
+    data: CertificatesDeleteCertificateData,
+  ): CancelablePromise<CertificatesDeleteCertificateResponse> {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/api/v1/certificates/{id}",
+      path: {
+        id: data.id,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+}
+
+export class ContactsService {
+  /**
+   * Read Contacts
+   * Retrieve contacts.
+   * @param data The data for the request.
+   * @param data.skip
+   * @param data.limit
+   * @returns ContactPublic Successful Response
+   * @throws ApiError
+   */
+  public static readContacts(
+    data: ContactsReadContactsData = {},
+  ): CancelablePromise<ContactsReadContactsResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/v1/contacts/",
+      query: {
+        skip: data.skip,
+        limit: data.limit,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Create Contact
+   * Create new contact.
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns ContactPublic Successful Response
+   * @throws ApiError
+   */
+  public static createContact(
+    data: ContactsCreateContactData,
+  ): CancelablePromise<ContactsCreateContactResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/v1/contacts/",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Read Contact
+   * Get contact by ID.
+   * @param data The data for the request.
+   * @param data.id
+   * @returns ContactPublic Successful Response
+   * @throws ApiError
+   */
+  public static readContact(
+    data: ContactsReadContactData,
+  ): CancelablePromise<ContactsReadContactResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/v1/contacts/{id}",
+      path: {
+        id: data.id,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Update Contact
+   * Update a contact.
+   * @param data The data for the request.
+   * @param data.id
+   * @param data.requestBody
+   * @returns ContactPublic Successful Response
+   * @throws ApiError
+   */
+  public static updateContact(
+    data: ContactsUpdateContactData,
+  ): CancelablePromise<ContactsUpdateContactResponse> {
+    return __request(OpenAPI, {
+      method: "PUT",
+      url: "/api/v1/contacts/{id}",
+      path: {
+        id: data.id,
+      },
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Delete Contact
+   * Delete a contact.
+   * @param data The data for the request.
+   * @param data.id
+   * @returns Message Successful Response
+   * @throws ApiError
+   */
+  public static deleteContact(
+    data: ContactsDeleteContactData,
+  ): CancelablePromise<ContactsDeleteContactResponse> {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/api/v1/contacts/{id}",
+      path: {
+        id: data.id,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+}
+
+export class CvsService {
+  /**
+   * Read Cvs
+   * Retrieve CVs.
+   * @param data The data for the request.
+   * @param data.skip
+   * @param data.limit
+   * @returns CVsPublic Successful Response
+   * @throws ApiError
+   */
+  public static readCvs(
+    data: CvsReadCvsData = {},
+  ): CancelablePromise<CvsReadCvsResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/v1/cvs/",
+      query: {
+        skip: data.skip,
+        limit: data.limit,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Create Cv
+   * Create new CV.
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns CVPublic Successful Response
+   * @throws ApiError
+   */
+  public static createCv(
+    data: CvsCreateCvData,
+  ): CancelablePromise<CvsCreateCvResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/v1/cvs/",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Read Cv
+   * Get CV by ID.
+   * @param data The data for the request.
+   * @param data.id
+   * @returns CVPublic Successful Response
+   * @throws ApiError
+   */
+  public static readCv(
+    data: CvsReadCvData,
+  ): CancelablePromise<CvsReadCvResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/v1/cvs/{id}",
+      path: {
+        id: data.id,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Update Cv
+   * Update a CV.
+   * @param data The data for the request.
+   * @param data.id
+   * @param data.requestBody
+   * @returns CVPublic Successful Response
+   * @throws ApiError
+   */
+  public static updateCv(
+    data: CvsUpdateCvData,
+  ): CancelablePromise<CvsUpdateCvResponse> {
+    return __request(OpenAPI, {
+      method: "PUT",
+      url: "/api/v1/cvs/{id}",
+      path: {
+        id: data.id,
+      },
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Delete Cv
+   * Delete a CV.
+   * @param data The data for the request.
+   * @param data.id
+   * @returns Message Successful Response
+   * @throws ApiError
+   */
+  public static deleteCv(
+    data: CvsDeleteCvData,
+  ): CancelablePromise<CvsDeleteCvResponse> {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/api/v1/cvs/{id}",
+      path: {
+        id: data.id,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+}
 
 export class ItemsService {
   /**
@@ -167,6 +612,369 @@ export class ItemsService {
   }
 }
 
+export class JobsService {
+  /**
+   * Read Jobs
+   * Retrieve jobs.
+   * @param data The data for the request.
+   * @param data.skip
+   * @param data.limit
+   * @returns JobPublic Successful Response
+   * @throws ApiError
+   */
+  public static readJobs(
+    data: JobsReadJobsData = {},
+  ): CancelablePromise<JobsReadJobsResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/v1/jobs/",
+      query: {
+        skip: data.skip,
+        limit: data.limit,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Create Job
+   * Create new job.
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns JobPublic Successful Response
+   * @throws ApiError
+   */
+  public static createJob(
+    data: JobsCreateJobData,
+  ): CancelablePromise<JobsCreateJobResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/v1/jobs/",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Read Job
+   * Get job by ID.
+   * @param data The data for the request.
+   * @param data.id
+   * @returns JobPublic Successful Response
+   * @throws ApiError
+   */
+  public static readJob(
+    data: JobsReadJobData,
+  ): CancelablePromise<JobsReadJobResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/v1/jobs/{id}",
+      path: {
+        id: data.id,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Update Job
+   * Update a job.
+   * @param data The data for the request.
+   * @param data.id
+   * @param data.requestBody
+   * @returns JobPublic Successful Response
+   * @throws ApiError
+   */
+  public static updateJob(
+    data: JobsUpdateJobData,
+  ): CancelablePromise<JobsUpdateJobResponse> {
+    return __request(OpenAPI, {
+      method: "PUT",
+      url: "/api/v1/jobs/{id}",
+      path: {
+        id: data.id,
+      },
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Delete Job
+   * Delete a job.
+   * @param data The data for the request.
+   * @param data.id
+   * @returns Message Successful Response
+   * @throws ApiError
+   */
+  public static deleteJob(
+    data: JobsDeleteJobData,
+  ): CancelablePromise<JobsDeleteJobResponse> {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/api/v1/jobs/{id}",
+      path: {
+        id: data.id,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+}
+
+export class KnowledgesService {
+  /**
+   * Read Knowledges
+   * Retrieve knowledges.
+   * @param data The data for the request.
+   * @param data.skip
+   * @param data.limit
+   * @returns KnowledgePublic Successful Response
+   * @throws ApiError
+   */
+  public static readKnowledges(
+    data: KnowledgesReadKnowledgesData = {},
+  ): CancelablePromise<KnowledgesReadKnowledgesResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/v1/knowledges/",
+      query: {
+        skip: data.skip,
+        limit: data.limit,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Create Knowledge
+   * Create new knowledge.
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns KnowledgePublic Successful Response
+   * @throws ApiError
+   */
+  public static createKnowledge(
+    data: KnowledgesCreateKnowledgeData,
+  ): CancelablePromise<KnowledgesCreateKnowledgeResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/v1/knowledges/",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Read Knowledge
+   * Get knowledge by ID.
+   * @param data The data for the request.
+   * @param data.id
+   * @returns KnowledgePublic Successful Response
+   * @throws ApiError
+   */
+  public static readKnowledge(
+    data: KnowledgesReadKnowledgeData,
+  ): CancelablePromise<KnowledgesReadKnowledgeResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/v1/knowledges/{id}",
+      path: {
+        id: data.id,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Update Knowledge
+   * Update a knowledge.
+   * @param data The data for the request.
+   * @param data.id
+   * @param data.requestBody
+   * @returns KnowledgePublic Successful Response
+   * @throws ApiError
+   */
+  public static updateKnowledge(
+    data: KnowledgesUpdateKnowledgeData,
+  ): CancelablePromise<KnowledgesUpdateKnowledgeResponse> {
+    return __request(OpenAPI, {
+      method: "PUT",
+      url: "/api/v1/knowledges/{id}",
+      path: {
+        id: data.id,
+      },
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Delete Knowledge
+   * Delete a knowledge.
+   * @param data The data for the request.
+   * @param data.id
+   * @returns Message Successful Response
+   * @throws ApiError
+   */
+  public static deleteKnowledge(
+    data: KnowledgesDeleteKnowledgeData,
+  ): CancelablePromise<KnowledgesDeleteKnowledgeResponse> {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/api/v1/knowledges/{id}",
+      path: {
+        id: data.id,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+}
+
+export class LanguagesService {
+  /**
+   * Read Languages
+   * Retrieve languages.
+   * @param data The data for the request.
+   * @param data.skip
+   * @param data.limit
+   * @returns LanguagePublic Successful Response
+   * @throws ApiError
+   */
+  public static readLanguages(
+    data: LanguagesReadLanguagesData = {},
+  ): CancelablePromise<LanguagesReadLanguagesResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/v1/languages/",
+      query: {
+        skip: data.skip,
+        limit: data.limit,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Create Language
+   * Create new language.
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns LanguagePublic Successful Response
+   * @throws ApiError
+   */
+  public static createLanguage(
+    data: LanguagesCreateLanguageData,
+  ): CancelablePromise<LanguagesCreateLanguageResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/v1/languages/",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Read Language
+   * Get language by ID.
+   * @param data The data for the request.
+   * @param data.id
+   * @returns LanguagePublic Successful Response
+   * @throws ApiError
+   */
+  public static readLanguage(
+    data: LanguagesReadLanguageData,
+  ): CancelablePromise<LanguagesReadLanguageResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/v1/languages/{id}",
+      path: {
+        id: data.id,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Update Language
+   * Update a language.
+   * @param data The data for the request.
+   * @param data.id
+   * @param data.requestBody
+   * @returns LanguagePublic Successful Response
+   * @throws ApiError
+   */
+  public static updateLanguage(
+    data: LanguagesUpdateLanguageData,
+  ): CancelablePromise<LanguagesUpdateLanguageResponse> {
+    return __request(OpenAPI, {
+      method: "PUT",
+      url: "/api/v1/languages/{id}",
+      path: {
+        id: data.id,
+      },
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Delete Language
+   * Delete a language.
+   * @param data The data for the request.
+   * @param data.id
+   * @returns Message Successful Response
+   * @throws ApiError
+   */
+  public static deleteLanguage(
+    data: LanguagesDeleteLanguageData,
+  ): CancelablePromise<LanguagesDeleteLanguageResponse> {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/api/v1/languages/{id}",
+      path: {
+        id: data.id,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+}
+
 export class LoginService {
   /**
    * Login Access Token
@@ -264,6 +1072,272 @@ export class LoginService {
       url: "/api/v1/password-recovery-html-content/{email}",
       path: {
         email: data.email,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+}
+
+export class PrivateService {
+  /**
+   * Create User
+   * Create a new user.
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns UserPublic Successful Response
+   * @throws ApiError
+   */
+  public static createUser(
+    data: PrivateCreateUserData,
+  ): CancelablePromise<PrivateCreateUserResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/v1/private/users/",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+}
+
+export class SchoolsService {
+  /**
+   * Read Schools
+   * Retrieve schools.
+   * @param data The data for the request.
+   * @param data.skip
+   * @param data.limit
+   * @returns SchoolPublic Successful Response
+   * @throws ApiError
+   */
+  public static readSchools(
+    data: SchoolsReadSchoolsData = {},
+  ): CancelablePromise<SchoolsReadSchoolsResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/v1/schools/",
+      query: {
+        skip: data.skip,
+        limit: data.limit,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Create School
+   * Create new school.
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns SchoolPublic Successful Response
+   * @throws ApiError
+   */
+  public static createSchool(
+    data: SchoolsCreateSchoolData,
+  ): CancelablePromise<SchoolsCreateSchoolResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/v1/schools/",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Read School
+   * Get school by ID.
+   * @param data The data for the request.
+   * @param data.id
+   * @returns SchoolPublic Successful Response
+   * @throws ApiError
+   */
+  public static readSchool(
+    data: SchoolsReadSchoolData,
+  ): CancelablePromise<SchoolsReadSchoolResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/v1/schools/{id}",
+      path: {
+        id: data.id,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Update School
+   * Update a school.
+   * @param data The data for the request.
+   * @param data.id
+   * @param data.requestBody
+   * @returns SchoolPublic Successful Response
+   * @throws ApiError
+   */
+  public static updateSchool(
+    data: SchoolsUpdateSchoolData,
+  ): CancelablePromise<SchoolsUpdateSchoolResponse> {
+    return __request(OpenAPI, {
+      method: "PUT",
+      url: "/api/v1/schools/{id}",
+      path: {
+        id: data.id,
+      },
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Delete School
+   * Delete a school.
+   * @param data The data for the request.
+   * @param data.id
+   * @returns Message Successful Response
+   * @throws ApiError
+   */
+  public static deleteSchool(
+    data: SchoolsDeleteSchoolData,
+  ): CancelablePromise<SchoolsDeleteSchoolResponse> {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/api/v1/schools/{id}",
+      path: {
+        id: data.id,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+}
+
+export class SkillsService {
+  /**
+   * Read Skills
+   * Retrieve skills.
+   * @param data The data for the request.
+   * @param data.skip
+   * @param data.limit
+   * @returns SkillPublic Successful Response
+   * @throws ApiError
+   */
+  public static readSkills(
+    data: SkillsReadSkillsData = {},
+  ): CancelablePromise<SkillsReadSkillsResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/v1/skills/",
+      query: {
+        skip: data.skip,
+        limit: data.limit,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Create Skill
+   * Create new skill.
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns SkillPublic Successful Response
+   * @throws ApiError
+   */
+  public static createSkill(
+    data: SkillsCreateSkillData,
+  ): CancelablePromise<SkillsCreateSkillResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/v1/skills/",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Read Skill
+   * Get skill by ID.
+   * @param data The data for the request.
+   * @param data.id
+   * @returns SkillPublic Successful Response
+   * @throws ApiError
+   */
+  public static readSkill(
+    data: SkillsReadSkillData,
+  ): CancelablePromise<SkillsReadSkillResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/v1/skills/{id}",
+      path: {
+        id: data.id,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Update Skill
+   * Update a skill.
+   * @param data The data for the request.
+   * @param data.id
+   * @param data.requestBody
+   * @returns SkillPublic Successful Response
+   * @throws ApiError
+   */
+  public static updateSkill(
+    data: SkillsUpdateSkillData,
+  ): CancelablePromise<SkillsUpdateSkillResponse> {
+    return __request(OpenAPI, {
+      method: "PUT",
+      url: "/api/v1/skills/{id}",
+      path: {
+        id: data.id,
+      },
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Delete Skill
+   * Delete a skill.
+   * @param data The data for the request.
+   * @param data.id
+   * @returns Message Successful Response
+   * @throws ApiError
+   */
+  public static deleteSkill(
+    data: SkillsDeleteSkillData,
+  ): CancelablePromise<SkillsDeleteSkillResponse> {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/api/v1/skills/{id}",
+      path: {
+        id: data.id,
       },
       errors: {
         422: "Validation Error",

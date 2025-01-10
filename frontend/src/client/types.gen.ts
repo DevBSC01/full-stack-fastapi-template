@@ -9,6 +9,88 @@ export type Body_login_login_access_token = {
   client_secret?: string | null
 }
 
+export type CertificateCreate = {
+  name: string
+  description?: string | null
+  date: string
+}
+
+export type CertificatePublic = {
+  name: string
+  description?: string | null
+  date: string
+  id: string
+}
+
+export type CertificateUpdate = {
+  name?: string | null
+  description?: string | null
+  date?: string | null
+}
+
+export type ContactCreate = {
+  first_name: string
+  last_name: string
+  address: string
+  zip_code: string
+  location: string
+  phone: string
+  email: string
+  birthdate: string
+  photo?: string | null
+  marital_status?: string | null
+}
+
+export type ContactPublic = {
+  first_name: string
+  last_name: string
+  address: string
+  zip_code: string
+  location: string
+  phone: string
+  email: string
+  birthdate: string
+  photo?: string | null
+  marital_status?: string | null
+  id: string
+}
+
+export type ContactUpdate = {
+  first_name?: string | null
+  last_name?: string | null
+  address?: string | null
+  zip_code?: string | null
+  location?: string | null
+  phone?: string | null
+  email?: string | null
+  birthdate?: string | null
+  photo?: string | null
+  marital_status?: string | null
+}
+
+export type CVCreate = {
+  name: string
+  recipient: string
+}
+
+export type CVPublic = {
+  name: string
+  recipient: string
+  id: string
+  created_at: string
+  edited_at: string
+}
+
+export type CVsPublic = {
+  data: Array<CVPublic>
+  count: number
+}
+
+export type CVUpdate = {
+  name?: string | null
+  recipient?: string | null
+}
+
 export type HTTPValidationError = {
   detail?: Array<ValidationError>
 }
@@ -35,6 +117,68 @@ export type ItemUpdate = {
   description?: string | null
 }
 
+export type JobCreate = {
+  position: string
+  company: string
+  location: string
+  start: string
+  end?: string | null
+  cv_id: string
+}
+
+export type JobPublic = {
+  position: string
+  company: string
+  location: string
+  start: string
+  end?: string | null
+  id: string
+  cv_id: string
+}
+
+export type JobUpdate = {
+  position?: string | null
+  company?: string | null
+  location?: string | null
+  start?: string | null
+  end?: string | null
+}
+
+export type KnowledgeCreate = {
+  name: string
+  description?: string | null
+  rating: number
+}
+
+export type KnowledgePublic = {
+  name: string
+  description?: string | null
+  rating: number
+  id: string
+}
+
+export type KnowledgeUpdate = {
+  name?: string | null
+  description?: string | null
+  rating?: number | null
+}
+
+export type LanguageCreate = {
+  language: string
+  level: string
+}
+
+export type LanguagePublic = {
+  language: string
+  level: string
+  id: string
+}
+
+export type LanguageUpdate = {
+  language?: string | null
+  level?: string | null
+}
+
 export type Message = {
   message: string
 }
@@ -42,6 +186,61 @@ export type Message = {
 export type NewPassword = {
   token: string
   new_password: string
+}
+
+export type PrivateUserCreate = {
+  email: string
+  password: string
+  full_name: string
+  is_verified?: boolean
+}
+
+export type SchoolCreate = {
+  school: string
+  subject: string
+  degree: string
+  location: string
+  start: string
+  end?: string | null
+  cv_id: string
+}
+
+export type SchoolPublic = {
+  school: string
+  subject: string
+  degree: string
+  location: string
+  start: string
+  end?: string | null
+  id: string
+  cv_id: string
+}
+
+export type SchoolUpdate = {
+  school?: string | null
+  subject?: string | null
+  degree?: string | null
+  location?: string | null
+  start?: string | null
+  end?: string | null
+}
+
+export type SkillCreate = {
+  name: string
+  rating: number
+  task_id: string
+}
+
+export type SkillPublic = {
+  name: string
+  rating: number
+  id: string
+  task_id: string
+}
+
+export type SkillUpdate = {
+  name?: string | null
+  rating?: number | null
 }
 
 export type Token = {
@@ -100,6 +299,102 @@ export type ValidationError = {
   type: string
 }
 
+export type CertificatesReadCertificatesData = {
+  limit?: number
+  skip?: number
+}
+
+export type CertificatesReadCertificatesResponse = Array<CertificatePublic>
+
+export type CertificatesCreateCertificateData = {
+  requestBody: CertificateCreate
+}
+
+export type CertificatesCreateCertificateResponse = CertificatePublic
+
+export type CertificatesReadCertificateData = {
+  id: string
+}
+
+export type CertificatesReadCertificateResponse = CertificatePublic
+
+export type CertificatesUpdateCertificateData = {
+  id: string
+  requestBody: CertificateUpdate
+}
+
+export type CertificatesUpdateCertificateResponse = CertificatePublic
+
+export type CertificatesDeleteCertificateData = {
+  id: string
+}
+
+export type CertificatesDeleteCertificateResponse = Message
+
+export type ContactsReadContactsData = {
+  limit?: number
+  skip?: number
+}
+
+export type ContactsReadContactsResponse = Array<ContactPublic>
+
+export type ContactsCreateContactData = {
+  requestBody: ContactCreate
+}
+
+export type ContactsCreateContactResponse = ContactPublic
+
+export type ContactsReadContactData = {
+  id: string
+}
+
+export type ContactsReadContactResponse = ContactPublic
+
+export type ContactsUpdateContactData = {
+  id: string
+  requestBody: ContactUpdate
+}
+
+export type ContactsUpdateContactResponse = ContactPublic
+
+export type ContactsDeleteContactData = {
+  id: string
+}
+
+export type ContactsDeleteContactResponse = Message
+
+export type CvsReadCvsData = {
+  limit?: number
+  skip?: number
+}
+
+export type CvsReadCvsResponse = CVsPublic
+
+export type CvsCreateCvData = {
+  requestBody: CVCreate
+}
+
+export type CvsCreateCvResponse = CVPublic
+
+export type CvsReadCvData = {
+  id: string
+}
+
+export type CvsReadCvResponse = CVPublic
+
+export type CvsUpdateCvData = {
+  id: string
+  requestBody: CVUpdate
+}
+
+export type CvsUpdateCvResponse = CVPublic
+
+export type CvsDeleteCvData = {
+  id: string
+}
+
+export type CvsDeleteCvResponse = Message
+
 export type ItemsReadItemsData = {
   limit?: number
   skip?: number
@@ -132,6 +427,102 @@ export type ItemsDeleteItemData = {
 
 export type ItemsDeleteItemResponse = Message
 
+export type JobsReadJobsData = {
+  limit?: number
+  skip?: number
+}
+
+export type JobsReadJobsResponse = Array<JobPublic>
+
+export type JobsCreateJobData = {
+  requestBody: JobCreate
+}
+
+export type JobsCreateJobResponse = JobPublic
+
+export type JobsReadJobData = {
+  id: string
+}
+
+export type JobsReadJobResponse = JobPublic
+
+export type JobsUpdateJobData = {
+  id: string
+  requestBody: JobUpdate
+}
+
+export type JobsUpdateJobResponse = JobPublic
+
+export type JobsDeleteJobData = {
+  id: string
+}
+
+export type JobsDeleteJobResponse = Message
+
+export type KnowledgesReadKnowledgesData = {
+  limit?: number
+  skip?: number
+}
+
+export type KnowledgesReadKnowledgesResponse = Array<KnowledgePublic>
+
+export type KnowledgesCreateKnowledgeData = {
+  requestBody: KnowledgeCreate
+}
+
+export type KnowledgesCreateKnowledgeResponse = KnowledgePublic
+
+export type KnowledgesReadKnowledgeData = {
+  id: string
+}
+
+export type KnowledgesReadKnowledgeResponse = KnowledgePublic
+
+export type KnowledgesUpdateKnowledgeData = {
+  id: string
+  requestBody: KnowledgeUpdate
+}
+
+export type KnowledgesUpdateKnowledgeResponse = KnowledgePublic
+
+export type KnowledgesDeleteKnowledgeData = {
+  id: string
+}
+
+export type KnowledgesDeleteKnowledgeResponse = Message
+
+export type LanguagesReadLanguagesData = {
+  limit?: number
+  skip?: number
+}
+
+export type LanguagesReadLanguagesResponse = Array<LanguagePublic>
+
+export type LanguagesCreateLanguageData = {
+  requestBody: LanguageCreate
+}
+
+export type LanguagesCreateLanguageResponse = LanguagePublic
+
+export type LanguagesReadLanguageData = {
+  id: string
+}
+
+export type LanguagesReadLanguageResponse = LanguagePublic
+
+export type LanguagesUpdateLanguageData = {
+  id: string
+  requestBody: LanguageUpdate
+}
+
+export type LanguagesUpdateLanguageResponse = LanguagePublic
+
+export type LanguagesDeleteLanguageData = {
+  id: string
+}
+
+export type LanguagesDeleteLanguageResponse = Message
+
 export type LoginLoginAccessTokenData = {
   formData: Body_login_login_access_token
 }
@@ -157,6 +548,76 @@ export type LoginRecoverPasswordHtmlContentData = {
 }
 
 export type LoginRecoverPasswordHtmlContentResponse = string
+
+export type PrivateCreateUserData = {
+  requestBody: PrivateUserCreate
+}
+
+export type PrivateCreateUserResponse = UserPublic
+
+export type SchoolsReadSchoolsData = {
+  limit?: number
+  skip?: number
+}
+
+export type SchoolsReadSchoolsResponse = Array<SchoolPublic>
+
+export type SchoolsCreateSchoolData = {
+  requestBody: SchoolCreate
+}
+
+export type SchoolsCreateSchoolResponse = SchoolPublic
+
+export type SchoolsReadSchoolData = {
+  id: string
+}
+
+export type SchoolsReadSchoolResponse = SchoolPublic
+
+export type SchoolsUpdateSchoolData = {
+  id: string
+  requestBody: SchoolUpdate
+}
+
+export type SchoolsUpdateSchoolResponse = SchoolPublic
+
+export type SchoolsDeleteSchoolData = {
+  id: string
+}
+
+export type SchoolsDeleteSchoolResponse = Message
+
+export type SkillsReadSkillsData = {
+  limit?: number
+  skip?: number
+}
+
+export type SkillsReadSkillsResponse = Array<SkillPublic>
+
+export type SkillsCreateSkillData = {
+  requestBody: SkillCreate
+}
+
+export type SkillsCreateSkillResponse = SkillPublic
+
+export type SkillsReadSkillData = {
+  id: string
+}
+
+export type SkillsReadSkillResponse = SkillPublic
+
+export type SkillsUpdateSkillData = {
+  id: string
+  requestBody: SkillUpdate
+}
+
+export type SkillsUpdateSkillResponse = SkillPublic
+
+export type SkillsDeleteSkillData = {
+  id: string
+}
+
+export type SkillsDeleteSkillResponse = Message
 
 export type UsersReadUsersData = {
   limit?: number
